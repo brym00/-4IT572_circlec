@@ -14,14 +14,14 @@ jobs:
       - persist_to_workspace
         root: .
         paths:
-            - .     
+          - .
   deploy:
-     <<: *vse
-     steps:
-       - attach_workspace:
+    <<: *vse
+    steps:
+      - attach_workspace:
           at: .
-       - run:
-         command: ./node_modules/.bin/firebase deploy --token=$FIREBASE_TOKEN 
+      - run:
+        command: ./node_modules/.bin/firebase deploy --token=$FIREBASE_TOKEN
 workflows:
   version: 2.1
   build:
@@ -29,7 +29,7 @@ workflows:
       - build
       - deploy:
         requires:
-            - build
+          - build
         filters:
-            branches:
-                only: master
+          branches:
+            only: master
