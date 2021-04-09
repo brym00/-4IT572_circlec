@@ -11,10 +11,10 @@ jobs:
       - run: npm install
       - run: npm run test
       - run: npm build
-      - persist_to_workspace
+      - persist_to_workspace:
           root: .
           paths:
-           - .
+            - .
   deploy:
     <<: *vse
     steps:
